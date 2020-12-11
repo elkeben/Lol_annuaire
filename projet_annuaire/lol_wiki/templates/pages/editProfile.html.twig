@@ -1,0 +1,70 @@
+{% extends 'layouts/layout.html.twig' %}
+
+
+{% block content %}
+
+    <section class="page-info-section set-bg" data-setbg="{{ asset('assets/img/clashbannerimage.jpg') }}">
+        <div class="pi-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6 text-white">
+                        <h2>Inscris-toi !</h2>
+                        <p>Pour ne rien rater des dernières infos sur League of legends</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section spad contact-page">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="comment-title">choisir une photo de profil</h4>
+                    {{ form_start(registerForm) }}
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="text-center">
+                                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"   class="avatar img-circle img-thumbnail" alt="avatar">
+
+                                {{ form_row(registerForm.image) }}
+                            </div></hr><br>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-8">
+                    <div class="contact-form-warp">
+                        <h4 class="comment-title">Inscription</h4>
+                        {{form_start(registerForm)}}
+                        <div style="margin-bottom: 150px" class="row">
+
+
+                            <div class="col-md-6">
+                                {{ form_row(registerForm.name) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registerForm.surname) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registerForm.email) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registerForm.password) }}
+                            </div>
+
+                            <div class="col-lg-12">
+                                {{ form_row(registerForm.pseudo) }}
+                                {{ form_row(registerForm.submit) }}
+                                {{ form_rest(registerForm) }}
+                            </div>
+                        </div>
+                        {{form_end(registerForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

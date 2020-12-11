@@ -1,0 +1,122 @@
+{% extends 'layouts/admin-layout.html.twig' %}
+
+
+{% block content %}
+
+    <div class="wrapper">
+        <div class="main-panel">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Champion</h4>
+                                </div>
+                                <div class="content">
+                                    {{ form_start(championForm) }}
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <img class="border-gray image" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="..."/>
+                                                    {{ form_row(championForm.image) }}
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Nom</label>
+                                                            {{ form_row(championForm.nom) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Rôle</label>
+                                                            {{ form_row(championForm.role) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Type</label>
+                                                            {{ form_row(championForm.type) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">date</label>
+                                                            {{ form_row(championForm.date) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Présentation</label>
+                                                            {{ form_row(championForm.presentation) }}
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Histoire</label>
+                                                    {{ form_row(championForm.histoire) }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="header">
+                                    <h4 class="title">Compétences</h4>
+                                </div>
+                                <div class="content">
+                                    <form>
+
+                                        <div class="row">
+                                            {% for competence in championForm.competences %}
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <img class="border-gray image" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="..."/>
+                                                    {{ form_row(competence.image) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Nom</label>
+                                                            {{ form_row(competence.nom) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Description</label>
+                                                            {{ form_row(competence.description) }}
+                                                        </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        </div>
+                                        {{form_end(championForm) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}

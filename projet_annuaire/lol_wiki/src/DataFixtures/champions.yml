@@ -1,0 +1,35 @@
+
+
+
+- nom: Aatrox
+  type: combattant
+  role: TOP
+  presentation: Aatrox est un Darkin qui se nourrit de l'énergie vitale de ses ennemis
+  histoire: Autrefois, Aatrox et ses frères étaient honorés pour avoir défendu Shurima contre le Néant. Mais ils finirent par devenir une menace plus grande encore pour Runeterra  la ruse et la sorcellerie furent employées pour les battre. Cependant, après des siècles d'emprisonnement, Aatrox fut le premier à retrouver sa liberté, en corrompant et transformant les mortels assez stupides pour tenter de s'emparer de l'arme magique qui contenait son essence. Désormais en possession d'un corps qu'il a approximativement transformé pour rappeler son ancienne forme, il arpente Runeterra en cherchant à assouvir sa vengeance apocalyptique.
+  image: https://www.pcgamesn.com/wp-content/uploads/legacy/aatrox_rework_2-590x332.jpg
+  date: "2010-09-06"
+
+
+- nom: Aphelios
+  type: tireur
+  role: ADC
+  presentation:  Aphelios est un chasseur céleste utilisant plusieurs type d'armes cosmiques
+  histoire: Émergeant des ombres au clair de lune, Aphelios abat ceux qui voudraient anéantir sa foi sans un mot ; ses armes et sa précision mortelle parlent pour lui. Un poison qui le rend muet coule dans ses veines, mais il est constamment guidé par sa sœur, Alune. Depuis son temple lointain, elle lui confère un arsenal d'armes en pierre de lune. Tant que la lune brillera dans le ciel, Aphelios ne sera jamais seul.
+  image: https://image.jeuxvideo.com/medias-md/157419/1574191264-5955-card.jpg
+  date: "2019-11-18"
+
+
+- nom: Bard
+  type: mage
+  role: SUP
+  presentation: Bard est un voyageur des étoiles qui se renforce en rammassant des carillons sur la carte
+  histoire: Voyageur d'au-delà des étoiles, Bard est un messager des bons augures qui combat pour maintenir l'équilibre dont la vie a besoin pour prospérer dans l'indifférence du chaos. Dans tout Runeterra, sa mystérieuse nature inspire des chants qui ne sont d'accord que sur un point  le vagabond cosmique est attiré par les reliques dotées d'un grand pouvoir magique. Accompagné par un chœur joyeux de Meeps, des esprits qui lui sont dévoués, il n'a d'actions que bénéfiques, même s'il a sa propre manière, un peu étrange, de servir le bien.
+  image: https://img.redbull.com/images/c_fill,g_auto,w_860,h_1075/q_auto,f_auto/redbullcom/2015/03/03/1331709145519_2/why-lol-s-bard-is-not-the-troll-we-think-he-is
+  date: "2015-07-29"
+
+
+
+
+
+
+

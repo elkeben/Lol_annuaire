@@ -1,0 +1,100 @@
+{% extends 'layouts/layout.html.twig' %}
+
+
+{% block content %}
+<!-- Header section end -->
+
+
+<!-- Hero section -->
+<section class="hero-section">
+    <div style="text-align: center" class="search-widget justify-content-center text-center">
+        <form autocomplete="off"  action="home.html.twig">
+            <label>
+                <input style="width:400px;border-color:#ffb320;border-width: 3px;border-style: solid; z-index: 100" class="form-control mr-sm-2 justify-content-center text-center"
+                       id="myInput" type="text" name="myChampion"
+                       placeholder="Sur quel champion veux-tu des infos ?">
+            </label>
+        </form>
+    </div>
+    <div class="hero-slider owl-carousel">
+
+        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/twitch.png') }}">
+
+            <div style="background-color:black; opacity:0.8" class="hs-text">
+                <h2 class="section-title">Choose <span>Your</span> Champions</h2>
+
+            </div>
+
+        </div>
+
+        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/ezreal.png') }}">
+
+            <div style="background-color:black; opacity:0.8" class="hs-text">
+                <h2 class="section-title">Learn <span>To</span> Play</h2>
+                <div style="text-align: center" class="search-widget justify-content-center text-center ">
+
+                </div>
+            </div>
+        </div>
+        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/katarina.png') }}">
+
+            <div style="background-color:black; opacity:0.8" class="hs-text">
+
+                <h2 class="section-title">Have  <span>Some</span> Fun</h2>
+                <div style="text-align: center" class="search-widget justify-content-center text-center ">
+
+                </div>
+            </div>
+        </div>
+        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/teemo.png') }}">
+
+            <div style="background-color:black; opacity:0.8" class="hs-text">
+                <h2 class="section-title">Become <span>The  </span> Best</h2>
+                <div style="text-align: center" class="search-widget justify-content-center text-center ">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="recent-game-section spad set-bg" data-setbg="assets/img/Ruined-King-A-League-of-Legends-Story.png">
+        <div class="container">
+            <div class="section-title">
+                <div style="margin-bottom: 50px;" class="cata new">Derniers champions ajoutés </div>
+
+                <div class="row">
+                    {% for champion in champions %}
+                        <div class="col-md-4">
+
+                            <div style="background-color:#fff" class="review-item border">
+
+                                <div class="review-cover set-bg">
+                                    <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img  style="height:100%;width:100%" src="{{ asset(champion.image) }}" alt="bogoss"></a>
+                                    <a class="score yellow" href="{{ url('showByRole',{name:champion.role}) }}">{{ champion.role }}</a>
+                                </div>
+
+                                <div class="review-text">
+                                    <h4><a href="{{ url('singleChampion', {slug:champion.slug}) }}">{{ champion.nom }}</a></h4>
+                                    <div class="rating">
+                                        <p>difficulté</p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star is-fade"></i>
+                                        <p>{{ champion.type }}</p>
+                                    </div>
+                                    <p>{{ champion.date|date("m/d/Y") }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}
+
+

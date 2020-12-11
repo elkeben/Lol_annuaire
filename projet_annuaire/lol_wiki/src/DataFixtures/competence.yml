@@ -1,0 +1,62 @@
+
+- nom: Épée des Darkin
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Aatrox abat son épée devant lui, infligeant des dégâts physiques. Il peut frapper jusqu'à 3 fois et chaque coup a une zone d'effet différente.
+  champion: Aatrox
+
+- nom: Chaînes infernales
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Aatrox frappe le sol, blessant le premier ennemi touché. Les champions et les grands monstres doivent vite quitter la zone d'effet sous peine d'être ramenés de force au point d'impact et de subir à nouveau les dégâts.
+  champion: Aatrox
+
+- nom: Ruée obscure
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Passivement, Aatrox se soigne quand il blesse des champions ennemis. À l'activation, il se rue dans une direction.
+  champion: Aatrox
+
+- nom: Fossoyeur des mondes
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Aatrox libère sa forme démoniaque, effrayant les sbires ennemis proches et augmentant ses dégâts d'attaque, ses soins et sa vitesse de déplacement. La durée est prolongée s'il participe à l'élimination d'un champion ennemi.
+  champion: Aatrox
+
+
+- nom: Concentration du ranger
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Ashe génère des effets Concentration quand elle attaque. Une fois le maximum d'effets Concentration atteint, Ashe peut lancer Concentration du ranger pour consommer tous les effets, ce qui augmente temporairement sa vitesse d'attaque et transforme son attaque de base en une puissante volée de flèches pendant la durée du sort.
+  champion: Aphelios
+
+- nom: Salve
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Ashe tire des flèches dans une zone conique pour infliger plus de dégâts. Elle applique aussi Tir givrant.
+  champion: Aphelios
+
+- nom: Rapace
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Ashe envoie son faucon en reconnaissance à n'importe quel endroit de la carte.
+  champion: Aphelios
+
+- nom: Flèche de cristal enchantée
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Ashe tire un trait de glace en ligne droite. Si la flèche touche un champion ennemi, elle le blesse et l'étourdit, la durée de l'étourdissement augmentant avec la distance parcourue par la flèche. De plus, les unités ennemies proches subissent des dégâts et sont ralenties.
+  champion: Aphelios
+
+- nom: Lien cosmique
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Bard tire un projectile qui ralentit le premier ennemi touché et qui continue sur sa lancée. S'il touche un mur, il étourdit la cible initiale ; s'il touche un deuxième ennemi, il étourdit les deux cibles.
+  champion: Bard
+
+- nom: Don du gardien
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Révèle un sanctuaire de soin qui gagne en puissance pendant quelques secondes. Il disparaît après avoir soigné et accéléré le premier allié qui le touche.
+  champion: Bard
+
+- nom: Route magique
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Bard ouvre un portail dans un élément du décor proche. Les alliés et les ennemis peuvent emprunter la route à sens unique ainsi créée en passant par le portail.
+  champion: Bard
+
+- nom: Destin tempéré
+  image: https://www2.deloitte.com/content/dam/html/ch/automation/icon-tool.png
+  description: Bard envoie de l'énergie spirituelle dans une zone, ce qui met brièvement en stase toutes les unités et toutes les tourelles.
+  champion: Bard
+

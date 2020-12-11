@@ -1,0 +1,73 @@
+{% extends 'layouts/layout.html.twig' %}
+
+
+{% block content %}
+
+
+<section class="footer-top-section">
+    <div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="{{ asset('uploads/'~user.image) }}" alt=""/>
+                    </div>
+                </div>
+
+            </div>
+
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="text-white">Pseudo</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ user.pseudo }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="text-white">Prénom</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ user.name }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="text-white">Nom</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ user.surname }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="text-white">Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ user.email }}</p>
+                                </div>
+                                <div style="margin-right:50px" class="user-panel edit">
+                                    <a href="{{ url('home') }}">Editer le profil </a>
+
+                                </div>
+                                <div class="user-panel edit">
+                                    <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </form>
+
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
