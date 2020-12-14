@@ -105,26 +105,19 @@
                     </div>
                 </div>
                 <ul class="community-post-list">
+                {#    {% for message in champion.messages %}
                     <li>
                         <div class="community-post">
+                            <div class="author-avator set-bg" data-setbg="{{ asset('assets/img/authors/7.jpg') }}"></div>
                             <div class="post-content">
-                                <h5>James Smith<span>posted an update</span></h5>
-                                <div class="post-date">June 21, 2018</div>
-                                <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
+                                <h5>Maria Doe<span>posted an update</span></h5>
+                                <div class="post-date">{{message.date}}</div>
+                                <p>{{ message.contenu }}</p>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="community-post">
-                            <div class="post-content">
-                                <h5>Partik Williams<span>posted an update</span></h5>
-                                <div class="post-date">June 21, 2018</div>
-                                <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
-                                <div class="attachment-file">
-                                    <img src="img/attachment.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
+                    {% endfor %}
+                #}
 
                 </ul>
 
@@ -135,17 +128,20 @@
             <div class="row justify-content-center comment">
 
                 <div class="text-center">
-                    <h4 class="comment-title">Ajouter un commentaire</h4>
-                    <form class="comment-form">
+                   <h4 class="comment-title">Ajouter un commentaire</h4>
+               {#     {{ form_start(messageForm) }}
 
                         <label>
-                            <textarea cols="100"  placeholder="Laisser un commentaire"></textarea>
+                            {{ form_row(messageForm.contenu) }}
                         </label><br>
-                        <button class="site-btn btn-sm">Envoyer</button>
+                        {{ form_row(messageForm.submit) }}
 
-                    </form>
+                    {{ form_end(messageForm) }}
+                    #}
                 </div>
+
             </div>
+
         </div>
 
     </section>

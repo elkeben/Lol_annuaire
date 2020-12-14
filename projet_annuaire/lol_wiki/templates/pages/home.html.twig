@@ -4,62 +4,24 @@
 {% block content %}
 <!-- Header section end -->
 
-
 <!-- Hero section -->
-<section class="hero-section">
-    <div style="text-align: center" class="search-widget justify-content-center text-center">
-        <form autocomplete="off"  action="home.html.twig">
-            <label>
-                <input style="width:400px;border-color:#ffb320;border-width: 3px;border-style: solid; z-index: 100" class="form-control mr-sm-2 justify-content-center text-center"
-                       id="myInput" type="text" name="myChampion"
-                       placeholder="Sur quel champion veux-tu des infos ?">
-            </label>
-        </form>
-    </div>
-    <div class="hero-slider owl-carousel">
 
-        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/twitch.png') }}">
 
-            <div style="background-color:black; opacity:0.8" class="hs-text">
-                <h2 class="section-title">Choose <span>Your</span> Champions</h2>
 
-            </div>
-
-        </div>
-
-        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/ezreal.png') }}">
-
-            <div style="background-color:black; opacity:0.8" class="hs-text">
-                <h2 class="section-title">Learn <span>To</span> Play</h2>
-                <div style="text-align: center" class="search-widget justify-content-center text-center ">
-
-                </div>
-            </div>
-        </div>
-        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/katarina.png') }}">
-
-            <div style="background-color:black; opacity:0.8" class="hs-text">
-
-                <h2 class="section-title">Have  <span>Some</span> Fun</h2>
-                <div style="text-align: center" class="search-widget justify-content-center text-center ">
-
-                </div>
-            </div>
-        </div>
-        <div class="hs-item set-bg" data-setbg="{{ asset('assets/img/teemo.png') }}">
-
-            <div style="background-color:black; opacity:0.8" class="hs-text">
-                <h2 class="section-title">Become <span>The  </span> Best</h2>
-                <div style="text-align: center" class="search-widget justify-content-center text-center ">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section class="recent-game-section spad set-bg" data-setbg="assets/img/Ruined-King-A-League-of-Legends-Story.png">
+    <section class="recent-game-section spad bg-grey">
         <div class="container">
+            <h2 class="section-title">Sur quel champion veux-tu des infos ?</h2>
+            <div style="height:30px"></div>
+            <div style="text-align: center;margin-bottom:30px" class="search-widget justify-content-center text-center add-position">
+                {{ form_start(searchForm) }}
+
+                {{ form_row(searchForm.keyword) }}
+
+                {{ form_row(searchForm.submit) }}
+
+                {{ form_end(searchForm) }}
+            </div>
+            <div style="height:50px"></div>
             <div class="section-title">
                 <div style="margin-bottom: 50px;" class="cata new">Derniers champions ajoutés </div>
 

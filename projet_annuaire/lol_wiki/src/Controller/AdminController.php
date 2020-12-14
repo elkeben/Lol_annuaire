@@ -32,21 +32,8 @@ class AdminController extends AbstractController
 
         $champion = new Champion();
 
-        $competence1 = new Competence();
-        $champion->addCompetence($competence1);
-        $em->persist($competence1);
-        $competence2 = new Competence();
-        $champion->addCompetence($competence2);
-        $em->persist($competence2);
-        $competence3 = new Competence();
-        $champion->addCompetence($competence3);
-        $em->persist($competence3);
-        $competence4 = new Competence();
-        $champion->addCompetence($competence4);
-        $em->persist($competence4);
 
         $form = $this->createForm(ChampionType::class, $champion);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -70,6 +57,19 @@ class AdminController extends AbstractController
                 $form->getData()->setImage($newFilename);
 
             }
+
+            $competence1 = new Competence();
+            $competence1->setNom('competence1');
+            $champion->addCompetence($competence1);
+            $competence2 = new Competence();
+            $competence2->setNom('competence2');
+            $champion->addCompetence($competence2);
+            $competence3 = new Competence();
+            $competence3->setNom('competence3');
+            $champion->addCompetence($competence3);
+            $competence4 = new Competence();
+            $competence4->setNom('competence4');
+            $champion->addCompetence($competence4);
             $em->persist($champion);
             $em->flush();
             return $this->redirectToRoute('listChampion');

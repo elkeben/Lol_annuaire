@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Champion;
 use App\Entity\Tag;
+use App\search\Search;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -80,7 +81,14 @@ class ChampionRepository extends ServiceEntityRepository
     }
 
 
+    public function search(Search $search){
 
+        return $this->createQueryBuilder('champion')
+            ->andWhere('champion.nom LIKE :nom')
+            ->setParameter('nom', '%'.$search->getKeyword().'%')
+            ->getQuery()
+            ->getResult();
+    }
 
 
 }

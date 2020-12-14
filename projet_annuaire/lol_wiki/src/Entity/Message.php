@@ -7,8 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
-class Message
+class Message extends \App\Entity\User
 {
     /**
      * @ORM\Id
@@ -40,6 +41,14 @@ class Message
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist() {
+        $this->date = new \DateTime();
+    }
 
     public function getId(): ?int
     {

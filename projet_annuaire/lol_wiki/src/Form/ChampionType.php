@@ -35,10 +35,9 @@ class ChampionType extends AbstractType
             ->add('date', DateType::class, [
                 'widget' => 'choice',
             ])
-            ->add('slug')
             ->add('competences', CollectionType::class, [
             'entry_type' => CompetenceType::class,
-            'entry_options' => ['label' => false],
+
         ])
             ->add('submit',SubmitType::class)
 

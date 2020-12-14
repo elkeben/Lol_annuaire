@@ -18,27 +18,33 @@
                                             {% for champion in champions %}
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <img class="border-gray image" src="{{ asset(champion.image) }}" alt="..."/>
+                                                        <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img class="border-gray image" src="{{ asset(champion.image) }}" alt="..."></a>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="row">
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <label>Nom</label>
                                                                 <p>{{ champion.nom }}</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">Rôle</label>
                                                                 <p>{{ champion.role }}</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">Type</label>
                                                                 <p>{{ champion.type }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1">date</label>
+                                                                <p>{{ champion.date|date("m/d/Y") }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
