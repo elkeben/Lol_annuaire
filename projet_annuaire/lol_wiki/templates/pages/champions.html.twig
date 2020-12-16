@@ -53,7 +53,7 @@
                         <div class="review-item border">
 
                             <div class="review-cover set-bg">
-                               <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img  style="height:100%;width:100%" src="{{ asset(champion.image) }}" alt="bogoss"></a>
+                               <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img  style="height:100%;width:100%" src="{{ asset('uploads/'~champion.image) }}" alt="bogoss"></a>
                                 <a class="score yellow" href="{{ url('showByRole',{name:champion.role}) }}">{{ champion.role }}</a>
                             </div>
 
@@ -75,12 +75,9 @@
                 {% endfor %}
 
             </div>
-
-            {{ knp_pagination_render(champions) }}
+          {{ knp_pagination_render(champions) }}
         </div>
     </section>
-
-
 
 
 {% endblock content %}

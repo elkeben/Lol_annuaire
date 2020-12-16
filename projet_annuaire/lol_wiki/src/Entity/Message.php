@@ -3,13 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\MessageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
  * @ORM\HasLifecycleCallbacks()
  */
-class Message extends \App\Entity\User
+class Message
 {
     /**
      * @ORM\Id
@@ -42,6 +44,15 @@ class Message extends \App\Entity\User
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="message")
+     */
+    private $answers;
+
+    public function __construct()
+    {
+        $this->answers = new ArrayCollection();
+    }
 
     /**
      * @ORM\PrePersist()
@@ -100,6 +111,36 @@ class Message extends \App\Entity\User
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Answer[]
+     */
+    public function getAnswers(): Collection
+    {
+        return $this->answers;
+    }
+
+    public function addAnswer(Answer $answer): self
+    {
+        if (!$this->answers->contains($answer)) {
+            $this->answers[] = $answer;
+            $answer->setMessage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnswer(Answer $answer): self
+    {
+        if ($this->answers->removeElement($answer)) {
+            // set the owning side to null (unless already changed)
+            if ($answer->getMessage() === $this) {
+                $answer->setMessage(null);
+            }
+        }
 
         return $this;
     }

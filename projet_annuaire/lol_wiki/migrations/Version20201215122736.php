@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201110135457 extends AbstractMigration
+final class Version20201215122736 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,12 +20,12 @@ final class Version20201110135457 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE champion (id INT AUTO_INCREMENT NOT NULL, champ_nom VARCHAR(30) NOT NULL, champ_type VARCHAR(15) NOT NULL, champ_role VARCHAR(15) NOT NULL, champ_presentation VARCHAR(255) NOT NULL, champ_histoire LONGTEXT NOT NULL, champ_image VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE competence DROP image');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE champion');
+        $this->addSql('ALTER TABLE competence ADD image VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`');
     }
 }

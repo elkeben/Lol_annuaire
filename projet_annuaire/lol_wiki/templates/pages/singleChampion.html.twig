@@ -7,12 +7,11 @@
         <div class="container">
             <div class="footer-top-bg">
 
-
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-logo text-white">
-                        <img style="width:400px;height:430px" class="latest-blog" src="{{ asset(champion.image) }}" alt="">
+                        <img style="width:400px;height:430px" class="latest-blog" src="{{ asset('uploads/'~champion.image) }}" alt="">
 
                     </div>
                 </div>
@@ -44,8 +43,7 @@
                             <div class="lb-item">
                                 <div class="lb-content">
                                     <div class="lb-date">Date de sortie du champion</div>
-                                    <p>{{ champion.date|date("m/d/Y") }}</p>
-
+                                    <p>{{ champion.date|date("d/m/Y") }}</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +69,7 @@
                             <div class="col-lg-3 col-md-3">
                                 <div  class="top-comment">
                                     <div class="tc-item">
-                                        <div class="tc-thumb set-bg" data-setbg="{{ asset(competence.image) }}"></div>
+                                        <div class="tc-thumb set-bg" data-setbg=""></div>
                                         <div class="tc-content">
                                             <div class="tc-date">{{ competence.nom }}</div>
                                             <p>{{ competence.description }}</p>
@@ -105,39 +103,58 @@
                     </div>
                 </div>
                 <ul class="community-post-list">
-                {#    {% for message in champion.messages %}
+                    {% for message in champion.messages %}
                     <li>
                         <div class="community-post">
-                            <div class="author-avator set-bg" data-setbg="{{ asset('assets/img/authors/7.jpg') }}"></div>
+                            <div class="author-avator set-bg" data-setbg="{{ asset('uploads/'~message.user.image) }}"></div>
                             <div class="post-content">
-                                <h5>Maria Doe<span>posted an update</span></h5>
-                                <div class="post-date">{{message.date}}</div>
+                                <h5>{{ message.user.pseudo }}<span>à posté un message</span></h5>
+                                 <h5 class="post-date"><span style="font-size:15px;margin-right:10px">le</span>{{message.date|date("d/m/Y à H:i")}}</h5>
                                 <p>{{ message.contenu }}</p>
                             </div>
+
+                            {% for answer in message.answers %}
+                            <div class="post-content">
+                                <h5>{{ message.user.pseudo }}<span>à répondu</span></h5>
+                                <h5 class="post-date"><span style="font-size:15px;margin-right:10px">le</span>{{answer.date|date("d/m/Y à H:i")}}</h5>
+                                <p>{{ answer.content }}</p>
+                            </div>
+                            {% endfor %}
+                                    {#
+                                {% if is_granted("ROLE_USER") %}
+                                 {{ form_start(answerForm) }}
+                                    {{ form_row(answerForm.content) }}
+                                    {{ form_row(answerForm.submit) }}
+                                {{ form_end(answerForm) }}
+                                {% else %}
+                                    <a href="{{ url( 'login') }}">Connectez-vous pour pouvoir ajouter un commentaire !</a>
+                                {% endif %}
+                                #}
                         </div>
                     </li>
                     {% endfor %}
-                #}
 
                 </ul>
 
-                <div class="site-pagination">
-                    <span class="active">01.</span>
-                </div>
             </div>
             <div class="row justify-content-center comment">
 
                 <div class="text-center">
                    <h4 class="comment-title">Ajouter un commentaire</h4>
-               {#     {{ form_start(messageForm) }}
+                    {{ form_start(messageForm) }}
+                    {% if is_granted("ROLE_USER") %}
 
-                        <label>
-                            {{ form_row(messageForm.contenu) }}
-                        </label><br>
+                        {{ form_row(messageForm.contenu) }}
+
                         {{ form_row(messageForm.submit) }}
-
                     {{ form_end(messageForm) }}
-                    #}
+                    {% else %}
+
+                        <a href="{{ url( 'app_login') }}">Connectez-vous pour pouvoir ajouter un commentaire !</a>
+
+                    {% endif %}
+
+
                 </div>
 
             </div>

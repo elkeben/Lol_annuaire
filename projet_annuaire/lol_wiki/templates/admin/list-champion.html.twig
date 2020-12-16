@@ -13,50 +13,63 @@
                                         <h4 class="title"> Liste des Champions</h4>
                                     </div>
                                     <div class="content">
+
                                         <form>
                                             <div class="row">
                                             {% for champion in champions %}
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img class="border-gray image" src="{{ asset(champion.image) }}" alt="..."></a>
+                                                        <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img class="border-gray image" src="{{ asset('uploads/'~champion.image) }}" alt="..."></a>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="row">
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                             <div class="form-group">
                                                                 <label>Nom</label>
                                                                 <p>{{ champion.nom }}</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">Rôle</label>
                                                                 <p>{{ champion.role }}</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">Type</label>
                                                                 <p>{{ champion.type }}</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">date</label>
-                                                                <p>{{ champion.date|date("m/d/Y") }}</p>
+                                                                <p>{{ champion.date|date("d/m/Y") }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+
+                                                                <a class="btn btn-primary" href="{{ url('deleteChampion',{id:champion.id}) }}">Supprimer</a>
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                     {% for competence in champion.competences %}
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                             <div class="form-group">
                                                                 <label>Compétence</label>
                                                                 <p>{{ competence.nom }}</p>
                                                             </div>
                                                         </div>
                                                     {% endfor %}
+                                                        <div class="form-group">
+
+                                                            <a class="btn btn-primary" href="{{ url('editChampion',{id:champion.id}) }}">Éditer</a>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             {% endfor %}

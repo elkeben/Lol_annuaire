@@ -6,10 +6,10 @@ use App\Doctrine\UserCreationListener;
 use App\Entity\User;
 use App\Form\RegisterType;
 use App\Repository\UserRepository;
-use App\Security\MailerRegisterService;
+use App\Service\PhotoUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,9 +53,11 @@ class SecurityController extends AbstractController
      * @param UserRepository $userRepository
      * @param UserPasswordEncoderInterface $userPasswordEncoder
      * @param UserCreationListener $userCreationListener
+     * @param PhotoUploader $photoUploader
      * @return Response
      */
-    public function register(Request $request, EntityManagerInterface $em, UserRepository $userRepository, UserPasswordEncoderInterface $userPasswordEncoder, UserCreationListener $userCreationListener){
+    public function register(Request $request, EntityManagerInterface $em, UserRepository $userRepository, UserPasswordEncoderInterface $userPasswordEncoder, UserCreationListener $userCreationListener, PhotoUploader $photoUploader){
+
         $user= new User();
         $user->setRoles(['ROLE_USER']);
 
@@ -65,47 +67,42 @@ class SecurityController extends AbstractController
             $user->setPassword($userPasswordEncoder->encodePassword($user, $user->getPassword()))
                 ->eraseCredentials()
             ;
-            $imageFile = $form->get('image')->getData();
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-
-                // Move the file to the directory where brochures are stored
-                try {
-                    $imageFile->move(
-                        $this->getParameter('images_path'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
-                $form->getData()->setImage($newFilename);
-
+            $photoUploader->uploadFilesFromForm($form);
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute('login',['user'=>$user->getId()]);
-            }
+            return $this->redirectToRoute('app_login',['user'=>$user->getId()]);
+
         }
         return $this->render('pages/register.html.twig', ['registerForm' => $form->createView() ] );
 
     }
 
-
     /**
-     * @Route("/editUser", name="editUser")
-     * @return Response
+     * @Route("/profile/edit/{id<\d+>}", name="editUser")
+     * @param User $user
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @param PhotoUploader $photoUploader
+     * @return RedirectResponse|Response
      */
 
-    public function editUser(){
 
+    public function editUser(User $user, EntityManagerInterface $em, Request $request, PhotoUploader $photoUploader){
 
-        $view = $this->renderView("pages/editUser.html.twig");
-        return new Response($view);
+        $form= $this->createForm(RegisterType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $photoUploader->uploadFilesFromForm($form);
+
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('profile', ['id'=> $user->getId()]);
+        }
+        return $this->render('pages/register.html.twig', ['registerForm' => $form->createView()]);
+
     }
-
-
 
 
 }

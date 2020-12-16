@@ -17,6 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class ChampionRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
+
     {
         parent::__construct($registry, Champion::class);
     }

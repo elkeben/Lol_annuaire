@@ -40,14 +40,21 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="lolwiki: schema" type="ebfa3cd1:MariaImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="lolwiki: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="champion: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="twig" />
         <option value="yaml" />
+        <option value="twig" />
       </list>
     </option>
   </component>
@@ -186,16 +193,16 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets" />
+      <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets\endgame" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets\sass" />
       <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets\js" />
       <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets\img" />
       <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets\fonts" />
       <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets" />
-      <recent name="C:\Users\benja\projet_annuaire\lol_wiki\public\assets\endgame" />
     </key>
   </component>
   <component name="RunManager">
@@ -273,6 +280,12 @@
       <workItem from="1607862455775" duration="12330000" />
       <workItem from="1607877373998" duration="739000" />
       <workItem from="1607880734214" duration="2534000" />
+      <workItem from="1607935004960" duration="415000" />
+      <workItem from="1607951493962" duration="14082000" />
+      <workItem from="1607974530922" duration="615000" />
+      <workItem from="1608018610309" duration="28300000" />
+      <workItem from="1608108134815" duration="6501000" />
+      <workItem from="1608125612025" duration="2614000" />
     </task>
     <servers />
   </component>
@@ -307,10 +320,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="530" y="236" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1607441797997" />
-    <state x="574" y="149" key="#com.intellij.ide.util.MemberChooser" timestamp="1607862905854">
+    <state x="574" y="149" key="#com.intellij.ide.util.MemberChooser" timestamp="1607959918746">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="149" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1607862905854" />
+    <state x="574" y="149" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1607959918746" />
     <state x="492" y="359" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1607597447862">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -319,45 +332,45 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="440" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1607863035537" />
-    <state x="499" y="176" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607863955104">
+    <state x="499" y="176" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608045800458">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1600954199648" />
-    <state x="499" y="176" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1607863955104" />
+    <state x="499" y="176" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1608045800458" />
     <state x="548" y="176" key="FileChooserDialogImpl" timestamp="1607873997848">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="548" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600949496242" />
     <state x="548" y="176" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1607873997848" />
-    <state width="1493" height="130" key="GridCell.Tab.0.bottom" timestamp="1607883699682">
+    <state width="1493" height="143" key="GridCell.Tab.0.bottom" timestamp="1608119762274">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601363991055" />
-    <state width="1493" height="130" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1607883699682" />
-    <state width="1493" height="130" key="GridCell.Tab.0.center" timestamp="1607883699682">
+    <state width="1493" height="143" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1608119762274" />
+    <state width="1493" height="143" key="GridCell.Tab.0.center" timestamp="1608119762274">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601363991055" />
-    <state width="1493" height="130" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1607883699682" />
-    <state width="1493" height="130" key="GridCell.Tab.0.left" timestamp="1607883699682">
+    <state width="1493" height="143" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1608119762274" />
+    <state width="1493" height="143" key="GridCell.Tab.0.left" timestamp="1608119762274">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601363991054" />
-    <state width="1493" height="130" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1607883699682" />
-    <state width="1493" height="130" key="GridCell.Tab.0.right" timestamp="1607883699682">
+    <state width="1493" height="143" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1608119762274" />
+    <state width="1493" height="143" key="GridCell.Tab.0.right" timestamp="1608119762274">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601363991055" />
-    <state width="1493" height="130" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1607883699682" />
+    <state width="1493" height="143" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1608119762274" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1605015793250">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1536.864@0.0.1536.864" timestamp="1605015793250" />
-    <state x="519" y="239" key="NewPhpClassDialog" timestamp="1607862822611">
+    <state x="519" y="239" key="NewPhpClassDialog" timestamp="1607959595173">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="519" y="228" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1600954145416" />
-    <state x="519" y="239" key="NewPhpClassDialog/0.0.1536.864@0.0.1536.864" timestamp="1607862822611" />
+    <state x="519" y="239" key="NewPhpClassDialog/0.0.1536.864@0.0.1536.864" timestamp="1607959595173" />
     <state x="277" y="76" key="SettingsEditor" timestamp="1605601611586">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -366,19 +379,19 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.864@0.0.1536.864" timestamp="1603261948523" />
-    <state x="649" y="323" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1607350790067">
+    <state x="649" y="323" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1607953761359">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="649" y="323" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.864@0.0.1536.864" timestamp="1607350790067" />
+    <state x="649" y="323" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.864@0.0.1536.864" timestamp="1607953761359" />
     <state x="635" y="180" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1605000267582">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="635" y="180" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1536.864@0.0.1536.864" timestamp="1605000267582" />
-    <state x="465" y="250" key="com.intellij.ide.util.TipDialog" timestamp="1607935004638">
+    <state x="465" y="250" key="com.intellij.ide.util.TipDialog" timestamp="1608125614968">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601365929353" />
-    <state x="465" y="250" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1607935004638" />
+    <state x="465" y="250" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1608125614968" />
     <state x="410" y="48" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606223194649">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -395,9 +408,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1607787328170" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1607620109036">
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1608029904829">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1607620109036" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1608029904829" />
   </component>
 </project>

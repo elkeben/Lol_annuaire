@@ -32,7 +32,7 @@
                             <div style="background-color:#fff" class="review-item border">
 
                                 <div class="review-cover set-bg">
-                                    <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img  style="height:100%;width:100%" src="{{ asset(champion.image) }}" alt="bogoss"></a>
+                                    <a href="{{ url('singleChampion', {slug:champion.slug}) }}"><img  style="height:100%;width:100%" src="{{ asset('uploads/'~champion.image) }}{{ asset(champion.image) }}" alt="bogoss"></a>
                                     <a class="score yellow" href="{{ url('showByRole',{name:champion.role}) }}">{{ champion.role }}</a>
                                 </div>
 
@@ -47,7 +47,7 @@
                                         <i class="fa fa-star is-fade"></i>
                                         <p>{{ champion.type }}</p>
                                     </div>
-                                    <p>{{ champion.date|date("m/d/Y") }}</p>
+                                    <p>{{ champion.date|date("d/m/Y") }}</p>
                                 </div>
                             </div>
                         </div>

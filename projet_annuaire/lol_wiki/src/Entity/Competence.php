@@ -22,10 +22,6 @@ class Competence
      */
     private $nom;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
 
     /**
      * @ORM\Column(type="text")
@@ -55,17 +51,7 @@ class Competence
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
 
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {

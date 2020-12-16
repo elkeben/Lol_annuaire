@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity(repositoryClass=ChampionRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Champion
 {
@@ -55,12 +56,12 @@ class Champion
     private $date;
 
     /**
-     * @ORM\OneToMany(targetEntity=Competence::class, mappedBy="champion")
+     * @ORM\OneToMany(targetEntity=Competence::class, mappedBy="champion", cascade={"remove"})
      */
     private $competences;
 
     /**
-     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="champion")
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="champion",  cascade={"remove"})
      */
     private $messages;
 
@@ -75,6 +76,14 @@ class Champion
         $this->competences = new ArrayCollection();
         $this->messages = new ArrayCollection();
     }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function preRemove() {
+        unlink("uploads/".$this->image);
+    }
+
 
     public function getId(): ?int
     {

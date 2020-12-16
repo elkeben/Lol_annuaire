@@ -16,15 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
 
-    /**
-     * @Route("/login", name="login")
-     */
-    public function login(){
 
-
-        $view = $this->renderView("security/login.html.twig");
-        return new Response($view);
-    }
 
     /**
      * @Route("/profile", name="profile")
