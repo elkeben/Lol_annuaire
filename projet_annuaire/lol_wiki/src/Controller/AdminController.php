@@ -23,6 +23,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
 
+
+    // route uniquement accessible en étant admin ou + qui permet de créer un champion en créant également ses 4 compétences en même temps
+
     /**
      * @Route("/createChampion", name="createChampion")
      * @param Request $request
@@ -35,6 +38,7 @@ class AdminController extends AbstractController
 
         $champion = new Champion();
 
+            // création des 4 compétences
             $competence1 = new Competence();
             $competence1->setNom('');
             $champion->addCompetence($competence1);
@@ -47,16 +51,16 @@ class AdminController extends AbstractController
             $competence4 = new Competence();
             $competence4->setNom('');
             $champion->addCompetence($competence4);
-
+            // foreach pour que chaque compétence soit persist
             foreach($champion->getCompetences() as $competence){
                 $em->persist($competence);
             }
-
+        // création normale d'un form
         $form = $this->createForm(ChampionType::class, $champion);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            // service d'upload d'image
             $photoUploader->uploadFilesFromForm($form);
 
             $em->persist($champion);
@@ -66,6 +70,9 @@ class AdminController extends AbstractController
         return $this->render('admin/add-champion.html.twig', ['championForm' => $form->createView()]);
     }
 
+
+    // fonction pour la suppression d'un champion (+ event dans l'entité champion  pour supprimer l'image
+
     /**
      * @Route("/listChampion/delete/{id<\d+>}", name="deleteChampion")
      * @param Champion $champion
@@ -73,16 +80,16 @@ class AdminController extends AbstractController
      * @return RedirectResponse| Response
      */
 
-
     public function deleteChampion(Champion $champion, EntityManagerInterface $em){
 
         $em->remove($champion);
         $em->flush();
 
-
         return $this->redirectToRoute('listChampion');
 
     }
+
+    // fonction pour l'édit d'un champion
 
     /**
      * @Route("/listChampion/edit/{id<\d+>}", name="editChampion")
@@ -93,14 +100,14 @@ class AdminController extends AbstractController
      * @return RedirectResponse|Response
      */
 
-
     public function editChampion(Champion $champion, EntityManagerInterface $em, Request $request, PhotoUploader $photoUploader){
-
+        // en ne créant pas d'instance, symfony va récuperer les données du champions grace à son id
         $form= $this->createForm(ChampionType::class, $champion);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // service d'upload d'image
             $photoUploader->uploadFilesFromForm($form);
 
             $em->persist($champion);
@@ -111,8 +118,8 @@ class AdminController extends AbstractController
 
     }
 
-
-
+    // fonction également accessible qu'en étant admin, elle permet d'afficher tousles champions
+    // et de donner la possibilité de les éditer ou de les supprimer
 
     /**
      * @Route("/listChampion", name="listChampion")
@@ -120,10 +127,12 @@ class AdminController extends AbstractController
      * @return Response
      */
     public function ListChampions(ChampionRepository $championRepository){
+
+        // cette fonction sert dans un premier temps à afficher tous les champions l'un à la suite
+        // de l'autre mais également de les trier par ordre alphabetique
         $champions = $championRepository->findAllChampions();
 
         return $this->render("admin/list-champion.html.twig", ['champions' => $champions]);
-
     }
 }
 

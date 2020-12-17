@@ -6,6 +6,7 @@
     <section style="background-color:#eef2f6" class="page-section review-page spad">
         <div class="container">
             <h2 style="" class="section-title">Liste des champions</h2>
+
             <div style="text-align: center;margin-bottom:30px" class="search-widget justify-content-center text-center add-position">
 
                 {{ form_start(searchForm) }}
@@ -17,35 +18,69 @@
                 {{ form_end(searchForm) }}
 
             </div>
-            <ul class="game-filter section-ul">
-                <li><a href="{{ url('showByLetter', {letter: 'A'}) }}">A</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'B'}) }}">B</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'C'}) }}">C</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'D'}) }}">D</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'E'}) }}">E</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'F'}) }}">F</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'G'}) }}">G</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'H'}) }}">H</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'I'}) }}">I</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'J'}) }}">J</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'K'}) }}">K</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'L'}) }}">L</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'M'}) }}">M</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'N'}) }}">N</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'O'}) }}">O</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'P'}) }}">P</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'Q'}) }}">Q</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'R'}) }}">R</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'S'}) }}">S</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'T'}) }}">T</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'U'}) }}">U</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'V'}) }}">V</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'W'}) }}">W</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'X'}) }}">X</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'Y'}) }}">Y</a></li>
-                <li><a href="{{ url('showByLetter', {letter: 'Z'}) }}">Z</a></li>
-            </ul>
+            <div class="row">
+                <div class="mb-4">
+                    <div style="padding-left:220px" class="main-menu">
+                        <ul class="main-menu primary-menu">
+                            <li><a style="color:#ffb320;" href="#">Lanes</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{ url('showByRole', {name: 'top'}) }}">Top</a></li>
+                                    <li><a href="{{ url('showByRole', {name: 'jgl'}) }}">Jungle</a></li>
+                                    <li><a href="{{ url('showByRole', {name: 'mid'}) }}">Mid</a></li>
+                                    <li><a href="{{ url('showByRole', {name: 'adc'}) }}">Adc</a></li>
+                                    <li><a href="{{ url('showByRole', {name: 'sup'}) }}">Support</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="main-menu">
+                        <ul  class="main-menu primary-menu">
+                            <li><a style="color:#ffb320;" href="#">Types</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{ url('showByType', {name: 'mage'}) }}">mage</a></li>
+                                    <li><a href="{{ url('showByType', {name: 'assassin'}) }}">assassin</a></li>
+                                    <li><a href="{{ url('showByType', {name: 'tank'}) }}">tank</a></li>
+                                    <li><a href="{{ url('showByType', {name: 'combattant'}) }}">combattant</a></li>
 
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <ul class="game-filter section-ul">
+                        <li><a href="{{ url('showByLetter', {letter: 'A'}) }}">A</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'B'}) }}">B</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'C'}) }}">C</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'D'}) }}">D</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'E'}) }}">E</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'F'}) }}">F</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'G'}) }}">G</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'H'}) }}">H</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'I'}) }}">I</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'J'}) }}">J</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'K'}) }}">K</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'L'}) }}">L</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'M'}) }}">M</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'N'}) }}">N</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'O'}) }}">O</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'P'}) }}">P</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'Q'}) }}">Q</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'R'}) }}">R</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'S'}) }}">S</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'T'}) }}">T</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'U'}) }}">U</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'V'}) }}">V</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'W'}) }}">W</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'X'}) }}">X</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'Y'}) }}">Y</a></li>
+                        <li><a href="{{ url('showByLetter', {letter: 'Z'}) }}">Z</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="row">
             {% for champion in champions %}
                 <div style="margin-bottom:30px" class="col-md-4">

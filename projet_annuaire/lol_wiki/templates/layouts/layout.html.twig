@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     <link href="{{ asset ('assets/img/favicon.ico') }}" rel="shortcut icon"/>
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset ('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset ('assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset ('assets/css/owl.carousel.css/') }}">
@@ -31,11 +31,11 @@
         <div class="container">
             <!-- logo -->
             <a class="site-logo" href="{{ url ('home') }}">
-                <img width="200px" height="50px" src="{{ asset ('assets/img/20191212013755!League_of_Legends_Logo.png') }}" alt="">
+                <img width="200px" height="50px" src="{{ asset ('assets/img/League_of_Legends_Logo.png') }}" alt="">
             </a>
             {% if is_granted("ROLE_USER") %}
                 <div class="user-panel">
-                    <a href="{{ url('profile') }}">Profile</a>
+                    <a  href="{{ url('profile') }}">Profile</a>
                 </div>
             {% else %}
                 <div class="user-panel">
@@ -54,15 +54,7 @@
             <!-- site menu -->
             <nav class="main-menu">
                 <ul class="main-menu primary-menu">
-                    <li><a href="#">Lanes</a>
-                        <ul class="sub-menu">
-                            <li><a href="{{ url('showByRole', {name: 'top'}) }}">Top</a></li>
-                            <li><a href="{{ url('showByRole', {name: 'jgl'}) }}">Jungle</a></li>
-                            <li><a href="{{ url('showByRole', {name: 'mid'}) }}">Mid</a></li>
-                            <li><a href="{{ url('showByRole', {name: 'adc'}) }}">Adc</a></li>
-                            <li><a href="{{ url('showByRole', {name: 'sup'}) }}">Support</a></li>
-                        </ul>
-                    </li>
+
                     <li><a href="{{ url('champions') }}">champions</a></li>
                     <li><a href="{{ url('contact') }}">contact</a></li>
                 </ul>
@@ -96,13 +88,18 @@
 
 {% block javascripts %}
 
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <![endif]-->
     <script src="{{ asset ('assets/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.marquee.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
 {% endblock %}

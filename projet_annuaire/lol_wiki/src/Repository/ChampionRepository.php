@@ -51,6 +51,8 @@ class ChampionRepository extends ServiceEntityRepository
     }
     */
 
+    // fonction pour trouver tous les champions et les trier par ordre alphabetique
+
     public function findAllChampions(){
         $query = $this->createQueryBuilder('c');
         $query
@@ -59,7 +61,7 @@ class ChampionRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
-
+    // fonction pour récuperer les trois derniers champions grace à leur date
 
     public function findWithPhotos($limit) {
         $qb = $this->createQueryBuilder('a');
@@ -72,6 +74,7 @@ class ChampionRepository extends ServiceEntityRepository
 
     }
 
+    // fonction de tri par la première lettre
     public function findByLetter($letter){
         $query = $this->createQueryBuilder('c')
             ->where('c.nom LIKE :A')
@@ -81,7 +84,7 @@ class ChampionRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
-
+    // fonction de recherche
     public function search(Search $search){
 
         return $this->createQueryBuilder('champion')

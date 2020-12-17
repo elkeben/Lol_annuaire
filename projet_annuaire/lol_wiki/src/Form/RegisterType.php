@@ -31,7 +31,7 @@ class RegisterType extends AbstractType
                     ])
                 ],
             ])
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('password', PasswordType::class, ['label'=> 'Password'])
             ->add('submit', SubmitType::class)
         ;

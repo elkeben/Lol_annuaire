@@ -18,6 +18,9 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+
+    // fonction de login créer grace au bundle de sécurité ( php bin/console make:security )
+
     /**
      * @Route("/login", name="app_login")
      * @param AuthenticationUtils $authenticationUtils
@@ -37,6 +40,9 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
+
+    // fonction qui sert à se déconnecter
+
     /**
      * @Route("/logout", name="app_logout")
      */
@@ -46,6 +52,7 @@ class SecurityController extends AbstractController
     }
 
 
+    // fonction de register
     /**
      * @Route("/register", name="register")
      * @param Request $request
@@ -58,15 +65,18 @@ class SecurityController extends AbstractController
      */
     public function register(Request $request, EntityManagerInterface $em, UserRepository $userRepository, UserPasswordEncoderInterface $userPasswordEncoder, UserCreationListener $userCreationListener, PhotoUploader $photoUploader){
 
+        // création de l'instance
         $user= new User();
+        // assignation du rôle de base pour toute personne qui crée un compte
         $user->setRoles(['ROLE_USER']);
-
+        // création normale d'un form
         $form = $this->createForm(RegisterType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setPassword($userPasswordEncoder->encodePassword($user, $user->getPassword()))
                 ->eraseCredentials()
             ;
+            // service d'upload de fichier
             $photoUploader->uploadFilesFromForm($form);
             $em->persist($user);
             $em->flush();
@@ -76,6 +86,8 @@ class SecurityController extends AbstractController
         return $this->render('pages/register.html.twig', ['registerForm' => $form->createView() ] );
 
     }
+
+    // fonction pour éditer le profil de l'utilisateur
 
     /**
      * @Route("/profile/edit/{id<\d+>}", name="editUser")
@@ -89,15 +101,18 @@ class SecurityController extends AbstractController
 
     public function editUser(User $user, EntityManagerInterface $em, Request $request, PhotoUploader $photoUploader){
 
+        // on récupère les données de la personnes et on les affiche dans le formulaire de création de compte
+        // formulaire de base
         $form= $this->createForm(RegisterType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            // service d'upload d'image
             $photoUploader->uploadFilesFromForm($form);
 
             $em->persist($user);
             $em->flush();
+            // apres l'édit on renvoi la personne sur son profil grace à son id
             return $this->redirectToRoute('profile', ['id'=> $user->getId()]);
         }
         return $this->render('pages/register.html.twig', ['registerForm' => $form->createView()]);
